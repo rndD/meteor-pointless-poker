@@ -39,8 +39,11 @@ Router.route('/:number/player/:name',
         action: function () {
             let number = Number(this.params.number);
             let playerName = this.params.name;
+            
             Session.set("sessionNumber", number);
             Session.set("playerName", playerName);
+            Session.set('cardsFlipped', false);
+            
             this.render();
         },
 

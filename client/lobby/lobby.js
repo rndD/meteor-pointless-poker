@@ -1,6 +1,6 @@
 import { Template } from 'meteor/templating';
 
-import { SessionsCollection } from '../../lib/collections';
+import { SessionsCollection, SESSION_STATES } from '../../lib/collections';
 
 import './lobby.jade';
 
@@ -12,7 +12,9 @@ const createNewSession = () => {
     
     SessionsCollection.insert({
         number: number,
-        currentSubj: 'Task #'
+        currentSubj: 'Task #',
+        state: SESSION_STATES['close'],
+        cards: [1, 2, 3, 5, 8, 13, '?']
     });
     
     return number;

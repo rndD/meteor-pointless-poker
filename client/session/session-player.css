@@ -1,0 +1,14 @@
+.session-player {
+    margin-right: 10px;
+    display: inline-block;
+}
+
+.session-player__name {
+    font-size: 1.2em;
+    text-align: center;
+    font-family: sans-serif;
+}
+
+.session-player_status_offline {
+    opacity: 0.5;
+}

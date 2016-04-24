@@ -10,7 +10,8 @@ const createPlayer = (name, sessionNumber) => {
         name,
         sessionNumber,
         currentCard: null,
-        online: true
+        online: true,
+        lastActivity: (new Date()).getTime()
     });
 };
 

@@ -1,0 +1,81 @@
+/* players-list */
+.session-player {
+    width: 150px;
+    height: 250px;
+    position: relative;
+    perspective: 800px;
+}
+
+.session-player .card {
+    width: 100%;
+    height: 100%;
+
+    position: absolute;
+
+    transform-style: preserve-3d;
+    transition: transform 1s;
+}
+
+.session-player .card__content {
+
+    margin: 0;
+    display: block;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+
+    backface-visibility: hidden;
+}
+
+.session-player .card__content_side_front {
+    transform: rotateY( 180deg );
+}
+
+.session-player .card__content_side_back {
+    background-image: url('http://cdn.tutsplus.com/craft/uploads/2014/01/geometric-patterns-grid-garland.jpg');
+    border-radius: 10px;
+}
+
+.session-player .card_flipped_yes {
+    transform: rotateY( 180deg );
+}
+
+/* Common */
+
+.card-container {
+    margin: 10px;
+}
+
+.card {
+    border-radius: 10px;
+    background: #fff;
+    box-shadow: 3px 3px 7px rgba(0,0,0,0.3);
+
+    width: 150px;
+    height: 220px;
+
+    display: inline-block;
+}
+
+.card__content {
+    text-align: center;
+    font: 100px/220px Arial, sans-serif;
+}
+
+/* Player */
+.session-player {
+    width: 150px;
+    height: 220px;
+}
+
+.session-player-cards .card {
+
+    transition: all 0.5s ease;
+}
+
+.session-player-cards .card:hover {
+    transform: scale(1.05,1.05);
+    box-shadow: 1px 1px 7px rgba(0,0,0,0.5);
+
+    cursor: pointer;
+}

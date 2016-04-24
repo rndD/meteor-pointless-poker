@@ -1,0 +1,14 @@
+.session-player-cards, .session__players-list {
+    display: flex;
+    flex-flow: row;
+    justify-content: center;
+    flex-wrap: wrap;
+    align-items: center;
+
+    min-width: 80%;
+    min-height: 350px;
+}
+
+.session-player-cards .card-container, .session__players-list .card-container{
+    flex: 1 1 auto;
+}
