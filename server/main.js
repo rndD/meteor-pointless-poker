@@ -11,6 +11,7 @@ Meteor.startup(() => {
             'lastActivity': {$lt: (now - tenSeconds)}
         }).forEach(function (player) {
             PlayersCollection.update(player._id, {$set: {'online': false}});
+            Meteor.call('chooseCard', player._id, null);
         });
     }, tenSeconds);
 });
