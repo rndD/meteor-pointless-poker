@@ -1,0 +1,30 @@
+.card {
+    margin-right: 10px;
+    width: 150px;
+    height: 220px;
+    border-radius: 10px;
+    background: #fff;
+    box-shadow: 3px 3px 7px rgba(0,0,0,0.3);
+    margin-bottom: 10px;
+    float:left;
+
+    cursor: pointer;
+    transition: all 0.5s ease;
+}
+
+.card__content {
+    text-align: center;
+    font: 100px/220px Arial, sans-serif;
+}
+
+.session__player-cards .card:hover {
+    transform: scale(1.05,1.05);
+    box-shadow: 1px 1px 7px rgba(0,0,0,0.5);
+    transition: all 0.5s ease;
+}
+
+.card_size_big {
+    width: 150px;
+    height: 235px;
+}
+

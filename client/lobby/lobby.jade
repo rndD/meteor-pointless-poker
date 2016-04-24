@@ -1,0 +1,18 @@
+template(name='lobby')
+    h1 Lobby
+
+    div.lobby__controlls
+        button.lobby__create-new-session-btn.btn_size_big Create new table
+
+    div.lobby__sessions-list
+        h2 Current tables:
+        #{sessions}
+        each sessions
+            +sessionCard
+
+
+template(name='sessionCard')
+    div.session-card
+        div.session-card__number
+           a(href='{{pathFor "session_player_choose"}}')
+                ##{number}

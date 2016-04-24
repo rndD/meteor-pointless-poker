@@ -1,0 +1,28 @@
+template(name='session_player_choose')
+    h3 Session ##{session.number}
+    form
+        label Your name:
+            input.input_size_big.session_player_choose__name-choose(type='text' name='name')
+
+template(name='session')
+    h3 Table ##{session.number}
+
+    label Send url to other players:
+        input#url(type='text' value='{{urlFor "session_player_choose" number=session.number}}')
+        button.session__copy-url-btn(data-clipboard-target="#url") 📋
+
+    div.session__players-list
+        h4 Players:
+        each players
+            div.session__player
+                | Name: #{name} #{online} Card: #{currentCard}
+
+        h4 Cards:
+        div.session__player-cards
+            each cards
+                div.player-card.card(data-value="#{this}")
+                    div.card__content #{this}
+
+
+
+
