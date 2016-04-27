@@ -9,7 +9,7 @@ Meteor.publish('Sessions', function(number) {
 
 Meteor.publish('Players', function(sessionNumber) {
     if (sessionNumber !== undefined) {
-        return PlayersCollection.find({sessionNumber});
+        return PlayersCollection.find({sessionNumber}, { fields: { lastActivity: 0 }});
     }
     return PlayersCollection.find();
 });
