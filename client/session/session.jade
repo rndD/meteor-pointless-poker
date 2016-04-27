@@ -24,7 +24,7 @@ template(name='session')
                     div.session-player__name #{name}
                     if currentCard
                         div.card-container
-                            div.card(data-value='#{currentCard}' class='{{#if itIsYou }}card_flipped_yes card_yours_yes{{/if}}')
+                            div.card(data-value='#{currentCard}' class='{{getCardClass}}')
                                 div.card__content_side_front.card__content #{currentCard}
                                 div.card__content_side_back.card__content
 

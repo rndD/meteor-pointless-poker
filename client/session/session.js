@@ -25,17 +25,6 @@ const currentPlayer = () => {
     });
 };
 
-
-const showCards = () => {
-    $('.card-container .card').not('.card_yours_yes').addClass('card_flipped_yes');
-};
-
-const hideCards = () => {
-    console.log('hide');
-    $('.card-container .card').not('.card_yours_yes').removeClass('card_flipped_yes');
-};
-
-
 var intervalId = null;
 const clearInterval = () => {
     Meteor.clearInterval(intervalId);
@@ -54,22 +43,6 @@ const setNewInterval = () => {
 Template.session.rendered = () => {
     new Clipboard('.session__copy-url-btn');
     setNewInterval();
-    
-    if (getCurrentSession().state === SESSION_STATES.open) {
-        showCards();
-    }
-
-    SessionsCollection.find(getCurrentSessionQuery()).observe({
-        changed: (newSession, oldSession) => {
-            if (oldSession.state !== newSession.state) {
-                if (newSession.state === SESSION_STATES.open) {
-                    showCards();
-                } else {
-                    hideCards();
-                }
-            }
-        }
-    });
 };
 
 Template.session.onDestroyed = clearInterval; 
@@ -84,11 +57,20 @@ Template.session.helpers({
         });
     },
     isOpen: () => getCurrentSession().state === SESSION_STATES.open,
-    itIsYou: function () {
-        let player = this;
-        let name = Session.get('playerName');
+    getCardClass: function () {
+        let classes = [];
+        const state = getCurrentSession().state;
+        const player = this;
+        const myName = Session.get('playerName');
+
+        if (myName === player.name) {
+            classes.push('card_flipped_yes');
+            classes.push('card_yours_yes');
+        } else {
+            state === SESSION_STATES.open && classes.push('card_flipped_yes');
+        }
         
-        return name === player.name;
+        return classes.join(' ');
     }
 });
 
