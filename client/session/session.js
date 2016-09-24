@@ -51,12 +51,13 @@ Template.session.onDestroyed = clearInterval;
 
 Template.session.helpers({
     session: getCurrentSession,
-    players: () => {
-        return PlayersCollection.find({
-            sessionNumber: Session.get('sessionNumber')
-        });
-    },
+
+    players: () => PlayersCollection.find({
+        sessionNumber: Session.get('sessionNumber')
+    }),
+
     isOpen: () => getCurrentSession().state === SESSION_STATES.open,
+
     getCardClass: function () {
         let classes = [];
         const state = getCurrentSession().state;
@@ -84,4 +85,3 @@ Template.session.events({
     'click .session__show-cards-btn': () => Meteor.call('showCards', Session.get('sessionNumber')),
     'click .session__clear-cards-btn': () => Meteor.call('clearCards', Session.get('sessionNumber'))
 });
-
