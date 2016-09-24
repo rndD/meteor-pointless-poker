@@ -34,7 +34,7 @@ const getIncNumber = () => {
 
 
 Template.lobby.helpers({
-    sessions: () => SessionsCollection.find()
+    sessions: () => SessionsCollection.find().fetch().reverse()
     
 });
 
