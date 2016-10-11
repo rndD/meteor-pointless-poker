@@ -29,7 +29,10 @@
 }
 
 .session-player .card__content_side_back {
-    background-image: url('http://cdn.tutsplus.com/craft/uploads/2014/01/geometric-patterns-grid-garland.jpg');
+   /* background-image: url('http://cdn.tutsplus.com/craft/uploads/2014/01/geometric-patterns-grid-garland.jpg');*/
+    background-image: url('pattern.gif');
+    background-size: cover;
+
     transform: rotateY(0deg);
 }
 
