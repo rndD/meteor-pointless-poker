@@ -1,24 +1,25 @@
 template(name='session_player_choose')
-    h3 Table ##{session.number}
+    h2 Table ##{session.number}
     form
         label Your name:
             input.input_size_big.session_player_choose__name-choose(type='text' name='name')
 
 template(name='session')
-    h3 Table ##{session.number}
+    h1.table-title Table ##{session.number}
 
-    label Send url to other players:
-        input#url(type='text' value='{{urlFor "session_player_choose" number=session.number}}')
-        button.session__copy-url-btn(data-clipboard-target="#url") 📋
-        br
-        if isOpen
-            button.session__clear-cards-btn New round
-        else
-            button.session__show-cards-btn Show cards
+    label.control-panel Send url to other players:
+        .control-panel__line
+            input#url(type='text' value='{{urlFor "session_player_choose" number=session.number}}')
+            button.session__copy-url-btn(data-clipboard-target="#url") 📋
+        .control-panel__btn-line
+            if isOpen
+                button.session__clear-cards-btn New round
+            else
+                button.session__show-cards-btn Show cards
 
 
     div.session__players-list
-        div.session__players-list
+        div.session__players-list.session__players-list_first
             each players
                 div.session-player(class='{{#if online}}{{else}}session-player_status_offline{{/if}}')
                     div.session-player__name #{name}
@@ -33,4 +34,3 @@ template(name='session')
                 div.card-container
                     div.card(data-value='#{this}')
                         div.card__content #{this}
-
