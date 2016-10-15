@@ -5,9 +5,9 @@ template(name='session_player_choose')
             input.input_size_big.session_player_choose__name-choose(type='text' name='name')
 
 template(name='session')
-    h1.table-title Table ##{session.number}
-
-    label.control-panel Send url to other players:
+    label.control-panel
+        h1.table-title Table ##{session.number}
+        .control-panel__message Send url to other players:
         .control-panel__line
             input#url(type='text' value='{{urlFor "session_player_choose" number=session.number}}')
             button.session__copy-url-btn(data-clipboard-target="#url") 📋
